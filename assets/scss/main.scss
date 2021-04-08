@@ -14,6 +14,15 @@ body {
 main {
   flex-grow: 1;
 }
+.apiCard{
+  max-height: 10vh
+}
+.apiCard img{
+  max-width: 10vh;
+}
+.card {
+flex-wrap: wrap;
+}
 
 
 
