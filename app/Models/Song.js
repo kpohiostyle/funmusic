@@ -1,17 +1,17 @@
 export default class Song {
-  constructor(data) {
-    this.title = data.trackName || data.title;
-    this.albumArt =
-      data.albumArt || data.artworkUrl100.replace(/100x100/g, "300x300");
-    this.artist = data.artistName || data.artist;
-    this.album = data.collectionName || data.album;
-    this.price = data.trackPrice || data.price;
-    this.preview = data.previewUrl || data.preview;
-    this.id = data.trackId || data._id;
-  }
+    constructor(data) {
+        this.title = data.trackName || data.title;
+        this.albumArt =
+            data.albumArt || data.artworkUrl100.replace(/100x100/g, "300x300");
+        this.artist = data.artistName || data.artist;
+        this.album = data.collectionName || data.album;
+        this.price = data.trackPrice || data.price;
+        this.preview = data.previewUrl || data.preview;
+        this.id = data.trackId || data._id;
+    }
 
-  get Template() {
-    return/*html*/ `
+    get Template() {
+        return/*html*/ `
         <div class="card apiCard mb-3" onclick='app.songsController.setActive(${this.id})'>
                 <div class="row">
                     <div class="col-md-4">
@@ -21,16 +21,16 @@ export default class Song {
                         <div class="card-body">
                             <small class="card-title m-0">${this.artist}</small>
                             <small class="card-text m-0">${this.title}</small>
-                            
+                            <audio>
                         </div>
                     </div>
                 </div>
             </div>
         `;
-  }
+    }
 
-  get playlistTemplate() {
-    return/*html*/ `
+    get playlistTemplate() {
+        return/*html*/ `
         <div class="card mb-3" onclick="app.songsController.setActive('${this.id}')">
                 <div class="row">
                     <div class="col">
@@ -45,10 +45,10 @@ export default class Song {
                 </div>
             </div>
         `;
-  }
+    }
 
-  get ActiveTemplate() {
-    return /*html */ `
+    get ActiveTemplate() {
+        return /*html */ `
         <div class="card"  >
             <img class="card-img-top" src="${this.albumArt}" alt="">
             <div class="card-body">
@@ -60,5 +60,5 @@ export default class Song {
         </div>
 
     `
-  }
+    }
 }
